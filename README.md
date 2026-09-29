@@ -288,21 +288,6 @@ pass over several concurrency levels runs well below the numbers at the top
 compiled kernels are kept in `CACHE_HOME`, so restarts and later boots start
 warm. Run your workload once, or restart once, before timing anything.
 
-## Roll back
-
-The compose file here leaves every tuned knob to the image's entrypoint. The
-previous version of this recipe (commit `dde02f4`) did the opposite: its
-`.env` set every tuned knob, it needed `compose/dflash2.yaml` as a second
-file, and its image's entrypoint defaults described a TP=2 boot. So an older
-image goes back with its own tree, not with this one:
-
-    docker compose -f compose/glm53.yaml down --timeout 60   # on all four
-    git checkout dde02f4
-    # rebuild that tree's image, restore its .env beside its compose files,
-    # and bring it up as its README says
-
-Keep the old image and `.env` until the new one has served for a while.
-
 ## Diagnostics
 
 Each container runs spark-agent's status server on `:8082` from container
