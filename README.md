@@ -59,8 +59,12 @@ and TP=6.
 two ConnectX-7 ports go to its two neighbours. mentat places the ranks in cable
 order, and every collective uses only neighbour links, relaying traffic for the
 opposite box through a neighbour. It needs mentat 0.17.1 on every daemon
-and a subnet per cable for each PCIe root. We've only run it through a switch,
-where the relay hop cost about 1% of decode.
+and a subnet per cable for each PCIe root. Through our switch, the relay hop
+cost about 1% of decode. On real ring cables, another user measured RigMark
+decode at 100.7 / 59.9 / 146.7 tok/s for code / prose / structured, and cold
+prefill at 4,745 / 4,737 tok/s at 32k / 64k (mentat 0.17.1, every overlay,
+RecoverSSM off). That is 12% below the switched TP=4 column on code, 9% on
+structured, level on prose, and about 5% below our RigMark prefill.
 [experimental/README.md](experimental/README.md) has the details.
 
 [model.yaml](model.yaml) has the checkpoints and the memory footprint, and
