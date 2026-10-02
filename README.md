@@ -1,4 +1,4 @@
-# GLM-5.3-Flash on ASUS GX10 (GB10): TP=2, 3, 4 or 6
+# GLM-5.3-Flash on DGX Spark (GB10): TP=2, 3, 4 or 6
 
 Need help? Join us on discord: https://discord.gg/M7XTrRJW3
 
