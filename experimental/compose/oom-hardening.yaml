@@ -7,7 +7,7 @@
 #                        sweep to 262k fit with ~4.7% host mem left and ZERO
 #                        earlyoom kills.
 #   MAX_MODEL_LEN        500000 (was 163840 stock TP2 default)
-#   MAX_NUM_BATCHED_TOKENS 4096 (was 8192)
+#   MAX_NUM_BATCHED_TOKENS 6144 (was 4096; +10% prefill, -9% gen, KV -0.4%)
 #   MAX_NUM_SEQS         6 (RecoverSSM keeps 1 KDA state/request; 16 stock)
 #   LONG_PREFILL_TOKEN_THRESHOLD 2304 (entrypoint derives it, keep default)
 # Plus the diagnostic ray/_host.py: mentat drops a remote rank's traceback, so
@@ -23,5 +23,5 @@ services:
     environment:
       - KV_CACHE_MEMORY=7730941132
       - MAX_MODEL_LEN=500000
-      - MAX_NUM_BATCHED_TOKENS=4096
+      - MAX_NUM_BATCHED_TOKENS=6144
       - MAX_NUM_SEQS=6
